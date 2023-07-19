@@ -1,3 +1,4 @@
+puts "cleaning ..."
 User.destroy_all
 Group.destroy_all
 GroupMember.destroy_all
@@ -24,14 +25,11 @@ NICKNAMES.each do |nickname|
 end
 
 index = 0
-
-SantaAssignement.create(group: group, giver: User.find_by_nickname("manue"), receiver: User.find_by_nickname("lou"))
-SantaAssignement.create(group: group, giver: User.find_by_nickname("lou"), receiver: User.find_by_nickname("laura"))
-SantaAssignement.create(group: group, giver: User.find_by_nickname("laura"), receiver: User.find_by_nickname("carla"))
-SantaAssignement.create(group: group, giver: User.find_by_nickname("carla"), receiver: User.find_by_nickname("yoann"))
-SantaAssignement.create(group: group, giver: User.find_by_nickname("karym"), receiver: User.find_by_nickname("lou"))
-SantaAssignement.create(group: group, giver: User.find_by_nickname("manue"), receiver: User.find_by_nickname("lou"))
-SantaAssignement.create(group: group, giver: User.find_by_nickname("manue"), receiver: User.find_by_nickname("lou"))
+ 5.times do
+SantaAssignement.create(group: group, giver: User.find_by_nickname(NICKNAMES[index]), receiver: User.find_by_nickname(NICKNAMES[index + 1]))
+index += 1
+end
+SantaAssignement.create(group: group, giver: User.find_by_nickname(NICKNAMES[index]), receiver: User.find_by_nickname(NICKNAMES[0]))
 
 
 puts "finish seeding !"
