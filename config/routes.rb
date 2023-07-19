@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: 'pages#home'
+  
   resources :groups do
     resources :group_members
     resources :santa_assignements
