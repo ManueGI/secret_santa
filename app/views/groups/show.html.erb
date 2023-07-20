@@ -1,1 +1,12 @@
-<h1>mon groupe</h1>
+<h1><%= @group.name %></h1>
+<ul>
+<% @members.each do |member| %>
+<li><%= member.user.nickname %></li>
+<% end %>
+</ul>
+
+<% if @receiver %>
+  <p>Tu es le secret Santa de <%= @receiver.nickname%></p>
+<% else %>
+  <p>Le tirage au sort n'a pas encore été fait</p>
+<% end %>

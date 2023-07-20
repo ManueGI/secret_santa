@@ -25,11 +25,11 @@ NICKNAMES.each do |nickname|
 end
 
 index = 0
- 5.times do
-SantaAssignement.create(group: group, giver: User.find_by_nickname(NICKNAMES[index]), receiver: User.find_by_nickname(NICKNAMES[index + 1]))
+5.times do
+SantaAssignement.create!(group: group, giver: User.find_by_nickname(NICKNAMES[index]), receiver: User.find_by_nickname(NICKNAMES[index + 1]))
 index += 1
 end
-SantaAssignement.create(group: group, giver: User.find_by_nickname(NICKNAMES[index]), receiver: User.find_by_nickname(NICKNAMES[0]))
+SantaAssignement.create!(group: group, giver: User.find_by_nickname(NICKNAMES[index]), receiver: User.find_by_nickname(NICKNAMES[0]))
 
 
 puts "finish seeding !"

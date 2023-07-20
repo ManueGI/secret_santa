@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: 'pages#home'
-  
+
   resources :groups do
     resources :group_members
     resources :santa_assignements
   end
+
+  get '/profile', to: 'pages#profile', as: :profile
 end
