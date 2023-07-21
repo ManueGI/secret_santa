@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
     @group_member = GroupMember.new(group: @group, user: @user)
     @group_member.save!
     if @group.save!
-      redirect_to groups_path
+      redirect_to new_group_group_member_path(@group)
     else
       render :new, status: :unprocessable_entity
     end

@@ -1,0 +1,7 @@
+<%= simple_form_for [@group, @group_member] do |f| %>
+<%= f.association :user, collection: User.pluck(:nickname, :id), prompt: "Choisir par pseudo",
+    label: "Personne à ajouter"%>
+
+<%= f.submit %>
+
+<% end %>
