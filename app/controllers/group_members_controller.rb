@@ -6,6 +6,7 @@ class GroupMembersController < ApplicationController
   end
 
   def create
+    @user = User.find_by_nickname(params[:user])
     @group_member = GroupMember.new(params_group_member)
     @group = Group.find(params[:group_id])
     @group_member.group = @group
@@ -19,7 +20,7 @@ class GroupMembersController < ApplicationController
   private
 
   def params_group_member
-    params.require(:group_member).permit(:group, :user_id)
+    params.require(:group_member).permit(:group, :user)
   end
 
 end
