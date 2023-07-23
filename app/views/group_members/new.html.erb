@@ -5,3 +5,10 @@
 <%= f.submit %>
 
 <% end %>
+
+<%= @group.name %>
+<% @group.group_members.each do |group_member| %>
+<%= group_member.user.nickname %>
+<% end %>
+
+<%= link_to "Enregistrer le groupe", group_path(@group) %>

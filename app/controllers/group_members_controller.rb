@@ -6,12 +6,15 @@ class GroupMembersController < ApplicationController
   end
 
   def create
-    @user = User.find_by_nickname(params[:user])
-    @group_member = GroupMember.new(params_group_member)
+    @group_member = GroupMember.new
     @group = Group.find(params[:group_id])
     @group_member.group = @group
+    @input = params[:group_member]
+    @name = @input.values[0]
+    @user = User.find_by_nickname(@name)
+    @group_member.user = @user
     if @group_member.save!
-      redirect_to group_path(@group)
+      redirect_to new_group_group_member_path(@group)
     else
       render :new, status: :unprocessable_entity
     end
