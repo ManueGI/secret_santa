@@ -29,6 +29,18 @@ class GroupsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+
+  end
+
+  def destroy
+    @group_member.destroy
+    
+  end
+
   private
 
   def params_group

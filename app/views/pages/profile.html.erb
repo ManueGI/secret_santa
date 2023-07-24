@@ -1,0 +1,10 @@
+<%= link_to "créer un nouveau groupe", new_group_path %>
+<ul>
+<% current_user.groups.each do |group| %>
+  <%= link_to group_path(group) do%>
+  <li>
+    <%= group.name %>
+  </li>
+  <% end %>
+<% end %>
+</ul>
