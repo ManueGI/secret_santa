@@ -1,0 +1,6 @@
+Renommer le groupe
+<%= simple_form_for [@group] do |f| %>
+  <%= f.input :name,
+      label: "Nom du groupe"%>
+      <%= f.submit "Nouveau nom" %>
+<% end %>

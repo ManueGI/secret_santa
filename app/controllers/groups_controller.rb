@@ -1,11 +1,12 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: %i[show edit update destroy]
+
   def index
     @user = current_user
     @groups = @user.groups
   end
 
   def show
-    @group = Group.find(params[:id])
     @members = @group.group_members
     @santa_assignement = SantaAssignement.where(group: Group.find(params[:id]), giver_id: current_user)[0]
     unless @santa_assignement.nil?
@@ -33,12 +34,13 @@ class GroupsController < ApplicationController
   end
 
   def update
-
+    @group.update(params_group)
+    redirect_to group_path(@group)
   end
 
   def destroy
-    @group_member.destroy
-    
+    @group.destroy
+    redirect_to profile_path
   end
 
   private
@@ -49,5 +51,9 @@ class GroupsController < ApplicationController
 
   def params_group_member
     params.require(:group_member).permit(:group, :user)
+  end
+
+  def set_group
+    @group = Group.find(params[:id])
   end
 end

@@ -9,4 +9,8 @@
   <p>Tu es le secret Santa de <%= @receiver.nickname%></p>
 <% else %>
   <p>Le tirage au sort n'a pas encore été fait</p>
+  <%= link_to "Modifier les membres du groupe", new_group_group_member_path(@group)%>
 <% end %>
+
+<%= link_to"supprimer le groupe", group_path(@group), data: { turbo_method: "DELETE", turbo_confirm: "Es-tu sûr(e) de vouloir supprimer ce groupe ?"}, class:""  %>
+<%= link_to"renommer le groupe", edit_group_path(@group)%>

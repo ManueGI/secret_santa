@@ -7,8 +7,13 @@
 <% end %>
 
 <%= @group.name %>
+<ul>
 <% @group.group_members.each do |group_member| %>
+<li>
 <%= group_member.user.nickname %>
+<%= link_to "X", group_group_member_path(@group, group_member), data: { turbo_method: "DELETE", turbo_confirm: "Es-tu sûr(e) de vouloir supprimer cette personne du groupe ?"}, class:"" %>
+</li>
 <% end %>
+</ul>
 
 <%= link_to "Enregistrer le groupe", group_path(@group) %>

@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :groups do
-    resources :group_members
-    resources :santa_assignements
+    resources :group_members, only: %i[new create destroy]
+    resources :santa_assignements, only: %i[new create]
   end
 
   get '/profile', to: 'pages#profile', as: :profile
+  # delete 'group_member/:id/destroy', to: 'groupmembers#destroy', as: :destroy_group_member
 end
