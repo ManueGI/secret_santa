@@ -21,6 +21,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(params_group)
     @user = current_user
+    @group.admin = @user
     @group_member = GroupMember.new(group: @group, user: @user)
     @group_member.save!
     if @group.save!
@@ -46,7 +47,7 @@ class GroupsController < ApplicationController
   private
 
   def params_group
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, :admin)
   end
 
   def params_group_member
