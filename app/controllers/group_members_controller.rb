@@ -4,6 +4,7 @@ class GroupMembersController < ApplicationController
 
   def new
     @group_member = GroupMember.new
+    authorize @group_member
   end
 
   def create
@@ -18,6 +19,7 @@ class GroupMembersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @group_member
   end
 
   def destroy

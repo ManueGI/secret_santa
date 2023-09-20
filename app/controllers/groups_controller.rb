@@ -12,10 +12,12 @@ class GroupsController < ApplicationController
     unless @santa_assignement.nil?
       @receiver = User.find(@santa_assignement.receiver_id)
     end
+    authorize @group
   end
 
   def new
     @group = Group.new
+    authorize @group
   end
 
   def create
@@ -29,6 +31,8 @@ class GroupsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @group
+    authorize @group_member
   end
 
   def edit
