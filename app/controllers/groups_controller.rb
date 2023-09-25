@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
 
   def index
     @user = current_user
-    @groups = @user.groups
+    @groups = policy_scope(Group)
   end
 
   def show
@@ -12,7 +12,6 @@ class GroupsController < ApplicationController
     unless @santa_assignement.nil?
       @receiver = User.find(@santa_assignement.receiver_id)
     end
-    authorize @group
   end
 
   def new
@@ -25,8 +24,8 @@ class GroupsController < ApplicationController
     @user = current_user
     @group.admin = @user
     @group_member = GroupMember.new(group: @group, user: @user)
-    @group_member.save!
     if @group.save!
+      @group_member.save!
       redirect_to new_group_group_member_path(@group)
     else
       render :new, status: :unprocessable_entity
@@ -60,5 +59,6 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+    authorize @group
   end
 end

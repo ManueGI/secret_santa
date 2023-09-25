@@ -1,4 +1,6 @@
 <h1><%= @group.name %></h1>
+<p>Groupe géré par <%= @group.admin.nickname %></p>
+
 <ul>
 <% @members.each do |member| %>
 <li><%= member.user.nickname %></li>
@@ -9,8 +11,12 @@
   <p>Tu es le secret Santa de <%= @receiver.nickname%></p>
 <% else %>
   <p>Le tirage au sort n'a pas encore été fait</p>
-  <%= link_to "Modifier les membres du groupe", new_group_group_member_path(@group)%>
 <% end %>
 
+<% if @group.admin == current_user %>
+<%= link_to "Modifier les membres du groupe", new_group_group_member_path(@group)%>
 <%= link_to"supprimer le groupe", group_path(@group), data: { turbo_method: "DELETE", turbo_confirm: "Es-tu sûr(e) de vouloir supprimer ce groupe ?"}, class:""  %>
+<% end %>
+<% if policy(@group).edit? %>
 <%= link_to"renommer le groupe", edit_group_path(@group)%>
+<% end %>

@@ -10,6 +10,7 @@ class GroupMembersController < ApplicationController
   def create
     @group_member = GroupMember.new
     @group_member.group = @group
+    skip_pundit?
     @input = params[:group_member]
     @name = @input.values[0]
     @user = User.find_by_nickname(@name)
@@ -36,6 +37,6 @@ class GroupMembersController < ApplicationController
 
   def set_group
     @group = Group.find(params[:group_id])
+    authorize @group
   end
-
 end

@@ -5,4 +5,12 @@ class GroupMemberPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+
+  def create?
+    true
+  end
+
+  def destroy?
+    user == record.group.admin
+  end
 end
