@@ -7,6 +7,14 @@
 <% end %>
 </ul>
 
+<% unless @receiver %>
+  <% if @group.admin == current_user %>
+  <%= link_to "Faire le tirage au sort", new_group_santa_assignement_path(@group),  data: { turbo_method: "GET", turbo_confirm: "As-tu bien ajouté tout le monde au groupe ? Une fois le tirage au sort effectué il n'est pas modifiable !"}, class:"" %>
+  <% end %>
+<% end %>
+
+
+
 <% if @receiver %>
   <p>Tu es le secret Santa de <%= @receiver.nickname%></p>
 <% else %>
@@ -14,7 +22,7 @@
 <% end %>
 
 <% if @group.admin == current_user %>
-<%= link_to "Modifier les membres du groupe", new_group_group_member_path(@group)%>
+<%= link_to "Modifier les membres du groupe", new_group_group_member_path(@group) %>
 <%= link_to"supprimer le groupe", group_path(@group), data: { turbo_method: "DELETE", turbo_confirm: "Es-tu sûr(e) de vouloir supprimer ce groupe ?"}, class:""  %>
 <% end %>
 <% if policy(@group).edit? %>
