@@ -1,6 +1,7 @@
 class GroupMembersController < ApplicationController
 
   before_action :set_group, only: %i[new create destroy]
+  before_action :verify_admin, only: %i[new create]
 
   def new
     @group_member = GroupMember.new
@@ -8,13 +9,10 @@ class GroupMembersController < ApplicationController
   end
 
   def create
-    @group_member = GroupMember.new
-    @group_member.group = @group
-    skip_pundit?
     @input = params[:group_member]
     @name = @input.values[0]
     @user = User.find_by_nickname(@name)
-    @group_member.user = @user
+    @group_member = GroupMember.new(group: @group, user: @user)
     if @group_member.save!
       redirect_to new_group_group_member_path(@group)
     else
@@ -38,5 +36,11 @@ class GroupMembersController < ApplicationController
   def set_group
     @group = Group.find(params[:group_id])
     authorize @group
+  end
+
+  def verify_admin
+    if @group.admin != current_user
+      redirect_to root_path
+    end
   end
 end

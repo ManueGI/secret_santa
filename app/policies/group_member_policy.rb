@@ -1,4 +1,5 @@
 class GroupMemberPolicy < ApplicationPolicy
+  attr_reader :user, :record, :group
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     # def resolve
@@ -6,8 +7,12 @@ class GroupMemberPolicy < ApplicationPolicy
     # end
   end
 
-  def create?
+  def new
     true
+  end
+
+  def create?
+   true
   end
 
   def destroy?

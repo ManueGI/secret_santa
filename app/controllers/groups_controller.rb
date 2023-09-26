@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
       @group_member.save!
       redirect_to new_group_group_member_path(@group)
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, notice: "Your cheap booking has been confirmed"
     end
     authorize @group
     authorize @group_member
