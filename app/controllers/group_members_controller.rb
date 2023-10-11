@@ -11,7 +11,7 @@ class GroupMembersController < ApplicationController
   def create
     @input = params[:group_member]
     @name = @input.values[0]
-    @user = User.find_by_nickname(@name)
+    @user = User.where('lower(nickname) = ?', @name.downcase).first
     @group_member = GroupMember.new(group: @group, user: @user)
     if @group_member.save!
       redirect_to new_group_group_member_path(@group)
