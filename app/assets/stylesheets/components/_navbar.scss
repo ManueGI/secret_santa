@@ -1,7 +1,22 @@
-.navbar-nav {
+.navbar-lewagon {
+  display: flex;
   justify-content: space-between;
-  background-color: #F6FFDE;;
-  color: #2e261a;
-  border-bottom: rgba(0,0,0,0.3) solid 1px;
-  height: 100px;
+  background: rgb(126, 126, 206);
+  height: 50px;
+  padding: 10px 20px 10px 20px;
+  margin: -10px;
+  a {
+    text-decoration: none;
+    display: inline;
+  }
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
