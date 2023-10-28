@@ -5,6 +5,23 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </p>
 
+          <div class="nav-center">
+
+            <div class="doodle-border search-bar">
+              <%= form_with url: public_pages_path, method: :get, html: { data: { search_items_target: 'form' } } do |f| %>
+                <%= f.text_field :query,
+                                  id: "navi-search",
+                                  placeholder: 'Qui cherchez-vous ?',
+                                  value: params[:query],
+                                  data: {
+                                  search_items_target: 'searchInput',
+                                  action: "keyup->search-items#update"
+                                  } %>
+                <%= submit_tag "" , class: "d-none" %>
+              <% end %>
+            </div>
+        </div>
+
             <div class="menu" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", profile_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>

@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'pages#profile', as: :profile
 
-  resources :public_pages, only: %i[show]
+  resources :public_pages, only: %i[show index]
 
 end
