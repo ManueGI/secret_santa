@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @members = @group.group_members
+    @members = @group.group_members.map(&:user)
     @santa_assignement = SantaAssignement.where(group: Group.find(params[:id]), giver_id: current_user)[0]
     unless @santa_assignement.nil?
       @receiver = User.find(@santa_assignement.receiver_id)

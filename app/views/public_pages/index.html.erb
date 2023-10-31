@@ -1,0 +1,6 @@
+<% @users.each do |user|%>
+<%= link_to public_page_path(user) do%>
+<%= user.nickname %>
+<% end %>
+
+<% end %>

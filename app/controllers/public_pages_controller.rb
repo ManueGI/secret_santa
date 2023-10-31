@@ -1,13 +1,15 @@
 class PublicPagesController < ApplicationController
 
   def index
-    @users = User.all
+    @users = policy_scope(User)
+    # if params[:query].present?
+    #   @group_member = @group_member.where
+    # end
+    authorize @users
   end
 
   def show
-    @group_member = GroupMember.find(params[:id])
-    @user = @group_member.user
-
-    authorize @group_member
+    @user = User.find(params[:id])
+    authorize @user
   end
 end

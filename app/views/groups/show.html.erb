@@ -3,7 +3,7 @@
 
 <ul>
 <% @members.each do |member| %>
-<li><%= member.user.nickname %></li>
+<li><%= member.nickname %></li>
 <%= link_to  "voir profil", public_page_path(member) %>
 <% end %>
 </ul>
