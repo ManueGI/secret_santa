@@ -2,9 +2,9 @@ class PublicPagesController < ApplicationController
 
   def index
     @users = policy_scope(User)
-    # if params[:query].present?
-    #   @group_member = @group_member.where
-    # end
+    if params[:query].present?
+      @users = @users.where("nickname ILIKE ?", "%#{params[:query]}%")
+    end
     authorize @users
   end
 
