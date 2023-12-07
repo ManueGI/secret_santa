@@ -10,3 +10,10 @@ development:
 test:
   <<: *default
   database: secret_santa_test
+
+production:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
+  database: secret_santa_production
+  username: secret_santa
+  password: <%= ENV["SECRET_SANTA_DATABASE_PASSWORD"] %>
