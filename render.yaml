@@ -1,7 +1,5 @@
 databases:
   - name: secret_santa
-    databaseName: secret_santa
-    user: secret_santa
     ipAllowList: []
 
 services:
@@ -9,7 +7,7 @@ services:
     name: rails
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    startCommand: "bundle exec rails s"
     envVars:
       - key: ee102ee0b4cf137f56c3cb4d3bb19eea
         sync: false
