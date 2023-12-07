@@ -1,11 +1,12 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: postgres
+    databaseName: secret_santa
+    user: secret_santa
+    ipAllowList: []
 
 services:
   - type: web
-    name: mysite
+    name: rails
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
@@ -18,4 +19,6 @@ services:
         sync: false
 
   - type: redis
+    name: redis
+    ipAllowList: []
     plan: free
