@@ -16,7 +16,7 @@ services:
           name: postgres
           property: connectionString
 
-  - type: postgres
+  - type: web
     plan: free
     name: name
     ipAllowList: []
