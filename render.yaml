@@ -1,5 +1,5 @@
 databases:
-  - name: postgres
+  - name: secret_santa
     databaseName: secret_santa
     user: secret_santa
     ipAllowList: []
@@ -18,7 +18,7 @@ services:
       - key: ee102ee0b4cf137f56c3cb4d3bb19eea
         sync: false
 
-  - type: redis
+  - type: type
     plan: free
-    name: redis
+    name: rname
     ipAllowList: []
