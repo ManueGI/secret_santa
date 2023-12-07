@@ -18,7 +18,7 @@ services:
       - key: ee102ee0b4cf137f56c3cb4d3bb19eea
         sync: false
 
-  - type: type
+  - type: web
     plan: free
-    name: rname
+    name: name
     ipAllowList: []
