@@ -16,6 +16,6 @@ services:
           name: postgres
           property: connectionString
 
-  - type: web
+  - type: redis
     plan: free
     name: name
