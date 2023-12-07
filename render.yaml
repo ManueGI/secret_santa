@@ -19,3 +19,4 @@ services:
   - type: redis
     plan: free
     name: name
+    ipAllowList: []
