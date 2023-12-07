@@ -2,7 +2,6 @@ databases:
   - name: mysite
     databaseName: mysite
     user: mysite
-    plan: free
 
 services:
   - type: web
@@ -17,3 +16,5 @@ services:
           property: connectionString
       - key: ee102ee0b4cf137f56c3cb4d3bb19eea
         sync: false
+
+  - plan: free
