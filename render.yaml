@@ -1,8 +1,8 @@
-- databases:
+databases:
   - name: postgres
   ipAllowList: []
 
-- services:
+services:
   - type: web
     name: rails
     env: ruby
