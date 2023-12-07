@@ -17,3 +17,4 @@ production:
   database: secret_santa_production
   # username: secret_santa
   # password: <%= ENV["SECRET_SANTA_DATABASE_PASSWORD"] %>
+  
