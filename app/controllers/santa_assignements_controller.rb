@@ -1,5 +1,5 @@
 class SantaAssignementsController < ApplicationController
-  before_action :set_group, :set_group_members, only: %i[new]
+  before_action :set_group, :set_group_members, only: %i[new destroy]
 
   def new
     santas = @group_members.map do |group_member|

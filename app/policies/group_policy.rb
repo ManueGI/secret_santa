@@ -19,6 +19,6 @@ class GroupPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user == record.admin
+    record.admin == user
   end
 end

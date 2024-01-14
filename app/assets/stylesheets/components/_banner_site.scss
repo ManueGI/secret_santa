@@ -1,0 +1,30 @@
+.banner-site {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('fond_cadeau.jpg');
+  background-size: cover;
+  background-position: top;
+  height: calc(100vh - 100%);
+  min-height: calc(100vh - 51px);
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.banner-site h1 {
+  margin-bottom: 13;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  font-family: 'fredoka';
+
+}
+
+.banner-site p {
+  font-size: 20px;
+  color: white;
+  opacity: .9;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family: 'Source sans pro';
+  margin-bottom: 40px;
+}

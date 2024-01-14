@@ -1,7 +1,7 @@
 puts 'cleaning ...'
-User.destroy_all
 Group.destroy_all
 GroupMember.destroy_all
+User.destroy_all
 SantaAssignement.destroy_all
 
 NICKNAMES = %i[manue lou laura carla yoann karym jules]
@@ -14,6 +14,8 @@ NICKNAMES.each do |nickname|
   user.email = "#{nickname}@mail.com"
   user.password = '123456'
   user.nickname = nickname
+  img = File.open("app/assets/images/avatar.png")
+  user.avatar.attach(io: img, filename: "avatar.png", content_type: "image/png")
   user.save!
   users << user
 end
@@ -38,3 +40,10 @@ end
 SantaAssignement.create!(group: group, giver: User.find_by_nickname(NICKNAMES[index]), receiver: User.find_by_nickname(NICKNAMES[0]))
 
 puts 'finish seeding !'
+
+
+  user = User.new
+  user.email = "lou24@mail.com"
+  user.password = '123456'
+  user.nickname = "lou24"
+  user.save!

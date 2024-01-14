@@ -1,1 +1,16 @@
-<h1>Bienvenue sur Secret Santa !</h1>
+<div class="banner">
+
+  <%= render 'shared/navbar' %>
+
+
+  <div class="container">
+    <br>
+    <h1>Organiser des soirée Secret Santa entre amis et en famille !</h1>
+    <p>Créez des listes de participants et lancer le tirage au sort<p>
+    <p>En manque d'inspiration ? Allez voir les Wish Lists de vos amis<p>
+    <%= link_to profile_path, class: 'btn btn-green' do %>
+      Créez une nouvelle liste
+    <% end %>
+  </div>
+   </div>
+   <%= render 'shared/footer' %>

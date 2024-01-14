@@ -11,7 +11,7 @@ class GroupMembersController < ApplicationController
   def create
     @input = params[:group_member]
     @name = @input.values[0]
-    @user = User.where('lower(nickname) = ?', @name.downcase).first
+    @user = User.find_by('lower(nickname) = ?', @name.downcase)
     @group_member = GroupMember.new(group: @group, user: @user)
     if @group_member.save!
       redirect_to new_group_group_member_path(@group)
@@ -25,6 +25,8 @@ class GroupMembersController < ApplicationController
     @group_member = GroupMember.find(params[:id])
     @group_member.destroy
     redirect_to new_group_group_member_path(@group)
+    authorize @group
+    authorize @group_member
   end
 
   private
@@ -39,8 +41,6 @@ class GroupMembersController < ApplicationController
   end
 
   def verify_admin
-    if @group.admin != current_user
-      redirect_to root_path
-    end
+    redirect_to root_path unless @group.admin == current_user
   end
 end

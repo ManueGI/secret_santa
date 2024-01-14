@@ -1,23 +1,48 @@
 .navbar-lewagon {
-  display: flex;
   justify-content: space-between;
-  background: rgb(126, 126, 206);
-  height: 50px;
-  padding: 10px 20px 10px 20px;
-  margin: -10px;
+  background:  rgba($color: #000000, $alpha: 0.5);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('fond_cadeau.jpg');
+  background-size: cover;
+  background-position: top;
+  height: 90px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   a {
-    text-decoration: none;
-    display: inline;
-    color: rgb(37, 27, 81);
+    color: white;
   }
+  h1 {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 20px;
+  }
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
 
-.menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+.dropdown-menu {
+  a {
+    color: $gray;
+  }
+}
+
+.nav-link:hover {
+  color: grey!important;
+  border: 1px solid grey!important;
+}
+
+#rooms-index {
+  border: 1px solid white;
+  padding: 5px 20px;
+  border-radius: 15px;
+}
+
+.avatar {
+  margin-right: 15px;
 }

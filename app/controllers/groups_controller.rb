@@ -40,11 +40,15 @@ class GroupsController < ApplicationController
   def update
     @group.update(params_group)
     redirect_to group_path(@group)
+    authorize @group
+    authorize @group_member
   end
 
   def destroy
     @group.destroy
     redirect_to profile_path
+    authorize @group
+    
   end
 
   private

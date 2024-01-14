@@ -8,13 +8,24 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <div class="container">
-      <%= yield %>
-    </div>
-    <%= render "shared/flashes" %>
+    <% unless action_name == "home" %>
+      <div class="banner-site">
+      <%= render 'shared/navbar' %>
+      <div class="container">
+    <% end %>
+
+    <%= yield %>
+
+    <% unless action_name == "home" %>
+      </div>
+      <%= render "shared/flashes" %>
+    <% end %>
+     </div>
+     <%= render 'shared/footer' %>
+
   </body>
 </html>

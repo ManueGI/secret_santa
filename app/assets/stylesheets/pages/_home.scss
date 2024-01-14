@@ -1,0 +1,60 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-size: 100% auto;
+}
+
+
+
+.banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)), url('fond_cadeau.jpg');
+  background-size: cover;
+  background-position: top;
+  height: calc(100vh - 100%);
+  min-height: calc(100vh - 50px);
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.accroche {
+  margin-left: 63px;
+  font-family: 'fredoka';
+}
+
+.banner h1 {
+  margin-bottom: 13;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  font-family: 'fredoka';
+
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .9;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family: 'Source sans pro';
+  margin-bottom: 40px;
+}
+
+.btn-green {
+  background-color: $green;
+  color: whitesmoke;
+  font-size: 20px;
+  padding: 10px 40px 10px 40px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  font-family: 'Source sans pro';
+  &:hover {background-color: #138a84;}
+}
+

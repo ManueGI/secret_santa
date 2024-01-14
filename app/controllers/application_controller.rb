@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  def autocomplete_user_nickname
+    term = params[:term]
+    items = User.where('nickname ILIKE ?', "%#{term}%").map(&:nickname)
+    render json: items
+  end
+
   private
 
   def skip_pundit?
