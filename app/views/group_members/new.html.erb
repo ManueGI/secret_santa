@@ -1,19 +1,31 @@
-<%= simple_form_for [@group, @group_member] do |f| %>
-<%= f.input :user, prompt: "Choisir par pseudo",
-    label: "Personne à ajouter" %>
+<div class="form-container">
+  <%= simple_form_for [@group, @group_member] do |f| %>
+  <%= f.input :user, prompt: "Choisir par pseudo",
+      label: "Personne à ajouter" %>
 
-<%= f.submit %>
+  <%= f.submit "Ajouter",
+      class: "btn btn-green" %>
 
-<% end %>
+  <% end %>
+  <h2>
+    <%= @group.name %>
+  </h2>
+  <div class="row">
+    <div class='col-xl-4 col-md-6'>
+  <ul >
+  <% @group.group_members.each do |group_member| %>
+    <li>
+    <%= group_member.user.nickname %>
+    <%= link_to "X", group_group_member_path(@group, group_member), data: { turbo_method: "DELETE", turbo_confirm: "Es-tu sûr(e) de vouloir supprimer cette personne du groupe ?"}, class:"" %>
+    </li>
 
-<%= @group.name %>
-<ul>
-<% @group.group_members.each do |group_member| %>
-<li>
-<%= group_member.user.nickname %>
-<%= link_to "X", group_group_member_path(@group, group_member), data: { turbo_method: "DELETE", turbo_confirm: "Es-tu sûr(e) de vouloir supprimer cette personne du groupe ?"}, class:"" %>
-</li>
-<% end %>
-</ul>
+  <% end %>
+  </ul>
 
-<%= link_to "Enregistrer le groupe", group_path(@group) %>
+
+    </div>
+  </div>
+
+  <%= link_to "Enregistrer le groupe", group_path(@group), class: "btn btn-green" %>
+
+</div>

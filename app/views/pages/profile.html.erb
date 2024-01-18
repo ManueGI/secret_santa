@@ -1,10 +1,49 @@
-<%= link_to "créer un nouveau groupe", new_group_path %>
-<ul>
-<% current_user.groups.each do |group| %>
-  <%= link_to group_path(group) do%>
-  <li>
-    <%= group.name %>
-  </li>
-  <% end %>
-<% end %>
-</ul>
+<div class="d-flex container-sp-btw ">
+  <div class="avatar-profile">
+    <%= cl_image_tag(current_user.avatar.key, width: 200, height: 200, crop: :fill) %>
+    <p>Modifier photo</p>
+  </div>
+
+<div class="card card-profile">
+  <div class="group">
+    <h2>
+      Mes groupes
+    </h2>
+    <ul>
+      <% current_user.groups.each do |group| %>
+        <%= link_to group_path(group) do%>
+        <li >
+          <%= group.name %>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+    <%= link_to "Créer une liste", new_group_path, class: "a-profile btn btn-green"%>
+</div>
+
+<div class="card card-profile">
+  <div class="group">
+    <h2>Ma wishlist</h2>
+    <ul>
+      <% current_user.wishlist.wishes.each do |wish| %>
+
+        <li>
+          <%= wish.content %>
+        </li>
+
+      <% end %>
+    </ul>
+    <p>Ajouter un souhait</p>
+    <%= simple_form_for [@wishlist, @wish] do |f| %>
+
+    <%= f.label :content  %>
+    <%= f.text_area :content, class:"form-control area"  %>
+    <%= f.submit "Ajouter", class:"btn btn-primary"  %>
+
+    <% end %>
+
+  </div>
+</div>
+
+</div>

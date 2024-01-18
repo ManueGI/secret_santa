@@ -5,9 +5,8 @@ body, html {
 
 body {
   background-size: 100% auto;
+  font-family: 'Source sans pro';
 }
-
-
 
 .banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)), url('fond_cadeau.jpg');
@@ -54,7 +53,5 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  font-family: 'Source sans pro';
   &:hover {background-color: #138a84;}
 }
-

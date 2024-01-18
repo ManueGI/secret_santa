@@ -16,6 +16,9 @@ NICKNAMES.each do |nickname|
   user.nickname = nickname
   img = File.open("app/assets/images/avatar.png")
   user.avatar.attach(io: img, filename: "avatar.png", content_type: "image/png")
+  wishlist = Wishlist.create
+  user.wishlist = wishlist
+  wish = Wish.create!(content: "Bougies parfumées", wishlist: wishlist)
   user.save!
   users << user
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_14_155912) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_17_170602) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,6 +83,21 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_14_155912) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wishes", force: :cascade do |t|
+    t.string "content"
+    t.bigint "wishlist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wishlist_id"], name: "index_wishes_on_wishlist_id"
+  end
+
+  create_table "wishlists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "group_members", "groups"
@@ -91,4 +106,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_14_155912) do
   add_foreign_key "santa_assignements", "groups"
   add_foreign_key "santa_assignements", "users", column: "giver_id"
   add_foreign_key "santa_assignements", "users", column: "receiver_id"
+  add_foreign_key "wishes", "wishlists"
+  add_foreign_key "wishlists", "users"
 end

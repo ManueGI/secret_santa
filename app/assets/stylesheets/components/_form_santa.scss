@@ -1,0 +1,49 @@
+.form-container {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  padding: 50px;
+  border-radius: 50px;
+  margin-top: 20px;
+
+  input {
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    border-radius: 50px;
+    color: white;
+  }
+
+  label {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: white;
+  }
+
+  ::placeholder {
+    color: whitesmoke;
+    text-align: center;
+  }
+
+  .btn {
+    background-color: $green;
+  }
+
+  h2 {
+    color: white;
+    margin-top: 5px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  li {
+    color: white;
+    font-size: 15px;
+  }
+
+  .list {
+    max-height: 15em;
+    display: grid;
+    grid-row: 2;
+  }
+
+}

@@ -1,6 +1,9 @@
-Renommer le groupe
-<%= simple_form_for [@group] do |f| %>
-  <%= f.input :name,
-      label: "Nom du groupe"%>
-      <%= f.submit "Nouveau nom" %>
-<% end %>
+<div class="form-container">
+  <%= simple_form_for [@group] do |f| %>
+    <%= f.input :name,
+    label: 'Renommer le groupe',
+    class: "test"%>
+        <%= f.submit "Nouveau nom" ,
+        class: "btn btn-green"%>
+  <% end %>
+</div>

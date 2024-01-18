@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     resources :santa_assignements, only: %i[new create]
   end
 
+  resources :wishlists do
+    resources :wishes
+  end
+
   get '/profile', to: 'pages#profile', as: :profile
 
   resources :public_pages, only: %i[show index]

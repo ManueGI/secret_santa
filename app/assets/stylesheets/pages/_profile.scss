@@ -1,0 +1,44 @@
+a {
+  text-decoration: none;
+}
+
+.a-profile {
+  color: white;
+  align-items: center;
+  border: solid 1px white;
+  box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.5);
+}
+
+.card-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  min-height: 23em;
+  width: 22em;
+  padding: 41px;
+  margin: 0px;
+  color: white;
+  border-radius: 10%;
+  a {
+    color: white;
+  }
+  a:hover {
+    color: rgb(133, 136, 134);
+  }
+}
+
+.page-profile {
+  padding-top: 20px;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.avatar-profile {
+  img {
+    border-radius: 30%;
+  }
+  p {
+    text-align: center;
+  }
+}

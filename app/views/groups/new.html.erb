@@ -1,6 +1,9 @@
-Crée un nouveau groupe
-<%= simple_form_for [@group] do |f| %>
-  <%= f.input :name,
-      label: "Nom du groupe"%>
-      <%= f.submit "Nouveau groupe" %>
-<% end %>
+<div class="form-container">
+  <h1>Créer un nouveau groupe</h1>
+  <%= simple_form_for [@group] do |f| %>
+    <%= f.input :name,
+        label: "Nom du groupe"%>
+        <%= f.submit "Nouveau groupe",
+        class: "btn btn-green" %>
+  <% end %>
+</div>
