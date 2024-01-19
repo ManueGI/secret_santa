@@ -13,7 +13,7 @@ class GroupMembersController < ApplicationController
     @name = @input.values[0]
     @user = User.find_by('lower(nickname) = ?', @name.downcase)
     @group_member = GroupMember.new(group: @group, user: @user)
-    if @group_member.save!
+    if @group_member.save
       redirect_to new_group_group_member_path(@group)
     else
       render :new, status: :unprocessable_entity

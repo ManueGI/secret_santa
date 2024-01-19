@@ -4,8 +4,8 @@ body, html {
 }
 
 body {
+  font-family: 'fredoka'!important;
   background-size: 100% auto;
-  font-family: 'Source sans pro';
 }
 
 .banner {
@@ -22,7 +22,6 @@ body {
 
 .accroche {
   margin-left: 63px;
-  font-family: 'fredoka';
 }
 
 .banner h1 {
@@ -31,8 +30,6 @@ body {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
-  font-family: 'fredoka';
-
 }
 
 .banner p {
@@ -40,7 +37,6 @@ body {
   color: white;
   opacity: .9;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-family: 'Source sans pro';
   margin-bottom: 40px;
 }
 

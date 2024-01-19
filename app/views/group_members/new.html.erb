@@ -1,7 +1,8 @@
 <div class="form-container">
   <%= simple_form_for [@group, @group_member] do |f| %>
   <%= f.input :user, prompt: "Choisir par pseudo",
-      label: "Personne à ajouter" %>
+      label: "Personne à ajouter",
+      input_html: { autocomplete: 'off' } %>
 
   <%= f.submit "Ajouter",
       class: "btn btn-green" %>

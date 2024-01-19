@@ -2,7 +2,8 @@
   <h1>Créer un nouveau groupe</h1>
   <%= simple_form_for [@group] do |f| %>
     <%= f.input :name,
-        label: "Nom du groupe"%>
+        label: "Nom du groupe",
+        input_html: { autocomplete: 'off' }%>
         <%= f.submit "Nouveau groupe",
         class: "btn btn-green" %>
   <% end %>

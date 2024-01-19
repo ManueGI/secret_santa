@@ -6,42 +6,65 @@
 
 <div class="card card-profile">
   <div class="group">
-    <h2>
-      Mes groupes
-    </h2>
-    <ul>
-      <% current_user.groups.each do |group| %>
-        <%= link_to group_path(group) do%>
-        <li >
-          <%= group.name %>
-        </li>
+    <div>
+      <h2>
+        Mes groupes
+      </h2>
+      <ul>
+        <% current_user.groups.each do |group| %>
+          <%= link_to group_path(group) do%>
+          <li >
+            <p>
+            <%= group.name %>
+            </p>
+          </li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
+      </ul>
+    </div>
+    <%= link_to "Créer un goupe", new_group_path, class: "a-profile btn btn-green"%>
   </div>
-    <%= link_to "Créer une liste", new_group_path, class: "a-profile btn btn-green"%>
 </div>
 
 <div class="card card-profile">
   <div class="group">
-    <h2>Ma wishlist</h2>
-    <ul>
-      <% current_user.wishlist.wishes.each do |wish| %>
+    <div>
+      <h2>Ma wishlist</h2>
+      <ul>
+        <% current_user.wishlist.wishes.each do |wish| %>
 
-        <li>
-          <%= wish.content %>
+          <li data-controller="edit">
+            <div class="wish d-flex" data-wish-id="<%= wish.id %>">
+
+              <p id="wish-content" data-edit-target="wish" data-value-edit="<%= wish.content %>">
+                <%= wish.content %>
+              </p>
+
+              <div id="wish-edit" class="d-none" data-edit-target="formedit" >
+                <%= simple_form_for [@wishlist, wish] do |f| %>
+                <%= f.input :content, class: "form-control area", label: false %>
+                <%= f.submit "Modifier", class: "submit-button" %>
+                <% end %>
+              </div>
+
+              <div class="wish-icon" data-edit-target="icon">
+                <i class="fa-solid fa-pen edit-wish" data-action="click->edit#toggledisplay"></i>
+                <%= link_to  wishlist_wish_path(@wishlist, wish), data: {turbo_method: "DELETE"}, class:"" do %>
+                  <i class="fa-solid fa-xmark edit-wish"></i>
+                <% end %>
+              </div>
+          </div>
         </li>
+        <% end %>
+      </ul>
+    </div>
 
+    <div class="form-wish">
+      <%= simple_form_for [@wishlist, @wish], html: { class: 'form-inline' } do |f| %>
+      <%= f.input :content, label: false, input_html: { autocomplete: 'off' }  %>
+      <%= f.submit "Ajouter", class:"submit"  %>
       <% end %>
-    </ul>
-    <p>Ajouter un souhait</p>
-    <%= simple_form_for [@wishlist, @wish] do |f| %>
-
-    <%= f.label :content  %>
-    <%= f.text_area :content, class:"form-control area"  %>
-    <%= f.submit "Ajouter", class:"btn btn-primary"  %>
-
-    <% end %>
+    </div>
 
   </div>
 </div>

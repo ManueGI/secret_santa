@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
       @group_member.save!
       redirect_to new_group_group_member_path(@group)
     else
-      render :new, status: :unprocessable_entity, notice: "Your cheap booking has been confirmed"
+      render :new, status: :unprocessable_entity, notice: "Nouveau groupe créé"
     end
     authorize @group
     authorize @group_member
@@ -40,15 +40,11 @@ class GroupsController < ApplicationController
   def update
     @group.update(params_group)
     redirect_to group_path(@group)
-    authorize @group
-   
   end
 
   def destroy
     @group.destroy
     redirect_to profile_path
-    authorize @group
-
   end
 
   private

@@ -4,6 +4,7 @@ a {
 
 .a-profile {
   color: white;
+  font-weight: 400;
   align-items: center;
   border: solid 1px white;
   box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.5);
@@ -40,5 +41,92 @@ a {
   }
   p {
     text-align: center;
+  }
+}
+
+.edit-wish {
+  cursor: pointer;
+  color: white;
+}
+
+.edit-wish:hover {
+  cursor: pointer;
+  color: $green;
+}
+
+.wish {
+justify-content: space-between;
+align-items: center;
+width: 100%;
+box-sizing: border-box;
+overflow: hidden;
+word-break: break-all;
+
+}
+
+#wish-edit {
+  display: inline-block;
+  .submit-button {
+    display: none;
+  }
+}
+
+.wish-icon {
+  display: inline-block;
+  opacity: 0.9;
+}
+
+#wish-edit {
+  input {
+    background-color: transparent;
+    color: white;
+    // font-family: 'Source sans pro';
+    font-size: 20px;
+    opacity: 0.9;
+    margin: 0;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: -18px;
+  }
+  .submit-button {
+    margin-bottom: 0;
+  }
+}
+
+.group {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+.form-inline {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  input[type="text"] {
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    opacity: 0.9;
+    margin: 0;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: -18px;
+    border-radius: 20px 0px 0px 20px;
+    height: 40px;
+  }
+  input[type="submit"]  {
+    margin-bottom: 0;
+    color: white;
+    background-color: $green;
+    height: 100%;
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 0px 20px 20px 0px;
+    height: 40px;
   }
 }
