@@ -1,9 +1,11 @@
-<ul>
-  <% @users.each do |user|%>
-    <li>
-      <%= link_to public_page_path(user) do%>
-        <%= user.nickname %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<div class="container public">
+  <ul>
+    <% @users.each do |user|%>
+      <li>
+        <%= link_to public_page_path(user) do%>
+          <%= user.nickname %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
